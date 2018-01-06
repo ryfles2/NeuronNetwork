@@ -9,7 +9,7 @@ using namespace std;
 const bool P1[SIZE] = { 1,1,1,1,1,1,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1,0,0,0,1,1,0,0,0,1,1,0,0,0,1 }; //A
 const bool P2[SIZE] = { 1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1,1,1 }; //C
 
-const bool P3[SIZE] = { 0,1,1,1,0,1,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1,0,0,0,1,1,0,0,0,1,1,0,0,0,1 }; //A sprawdzanie sieci
+//const bool P3[SIZE] = {}// sprawdzanie sieci
 
 
 int main(int argc, char *argv[]) {
@@ -33,36 +33,35 @@ int main(int argc, char *argv[]) {
 	//**********************************************************NAUKA KONIEC
 
 
-	for (int i = 0; i < SIZE; i++) {
+	for (int i = 0; i < SIZE; i++) 
+	{
 		if (i % 5 == 0) cout << endl;
-		(P1[i] == true) ? cout << "#" : cout << " ";
+		if (P1[i] == true)cout << "#";
+		else cout << " ";
 	}
 	cout << " " << neuron.count(P1);
 
 	cout << endl;
-	for (int i = 0; i < SIZE; i++) {
+	for (int i = 0; i < SIZE; i++)
+	{
 		if (i % 5 == 0) cout << endl;
-		(P2[i] == true) ? cout << "#" : cout << " ";
+		if (P2[i] == true)cout << "#";
+		else cout << " ";
 	}
 	cout << " " << neuron.count(P2);
 
 
 	//SPRAWDZANIE
-	cout << endl;
-	for (int i = 0; i < SIZE; i++) {
+	/*cout << endl;
+	for (int i = 0; i < SIZE; i++) 
+	{
 		if (i % 5 == 0) cout << endl;
-		(P3[i] == true) ? cout << "#" : cout << " ";
+		if (P3[i] == true)cout << "#";
+		else cout << " ";
 	}
 	cout << " " << neuron.count(P3);
-
+	*/
 	
-	for (int i = 0; i < 100; i++)
-	{
-		//auto x = double((rand() % 10000) * 1) / 10000.0;
-		//auto x = -1 + (double)rand() / RAND_MAX *(1 - (-1));
-		//cout << x << endl;
-
-	}
 
 	cout << endl;
 	return 0;

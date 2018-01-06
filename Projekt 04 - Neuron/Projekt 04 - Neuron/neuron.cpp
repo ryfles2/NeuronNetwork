@@ -5,8 +5,10 @@ Neuron::Neuron(const int _size) {
 	//zabespieczenie
 	if (_size == 0) return;
 
-	size = 7;
+	//przypisanie rozmiaru
+	size = _size;
 
+	//tablica dynamiczna wagi
 	weight = new double*[size];
 	for (int i = 0; i < size; i++)
 	{
@@ -32,14 +34,19 @@ double Neuron::learn(const bool* array, const double answer) {
 	// Obliczam net
 	double net = 0.0;
 	for (int i = 0; i < size; i++)
-		net += (array[i] == true) ? *(weight[i]) : 0.0;
+	{
+		if (array[i] == true) net += *(weight[i]);
+	}
 
 	// Obliczam sygnal wyjsciowy
 	double y = 1.0 / (1.0 + exp(-net));
 
 	// Uaktualnianie wag
 	for (int i = 0; i < size; i++)
+	{
 		*weight[i] += 0.002 * (answer - y) * (1.0 - y) * static_cast<double>(array[i]) * y;
+	}
+		
 
 	// Obliczam E(w)
 	double e = 0.5 * (answer - y) * (answer - y);
@@ -50,9 +57,10 @@ double Neuron::learn(const bool* array, const double answer) {
 // Obliczanie wartosci dla danych testowych
 double Neuron::count(const bool* array) {
 	double net = 0.0;
-
 	for (int i = 0; i < size; i++)
-		net += (array[i] == true) ? *weight[i] : 0.0;
+	{
+		if (array[i] == true) net += *(weight[i]);
+	}
 
 	return 1.0 / (1.0 + exp(-net));
 }

@@ -20,5 +20,6 @@ public:
 	double count(const bool* array);
 private:
 	int size;
+	//wskaznik(tablica dynamiczna)
 	double **weight;
 };
