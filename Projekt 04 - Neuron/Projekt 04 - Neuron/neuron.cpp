@@ -1,27 +1,34 @@
 #include "neuron.h"
 
 // Konstruktor
-Neuron::Neuron(const int& size) {
-	if (size == 0)
-		return;
+Neuron::Neuron(const int _size) {
+	//zabespieczenie
+	if (_size == 0) return;
 
-	this->size = size;
+	size = 7;
 
-	weight = new double*[this->size];
-	for (int i = 0; i < this->size; i++)
-		weight[i] = new double(((rand() % 10000) * ((rand() & 1) ? 1 : -1)) / 10000.0);
+	weight = new double*[size];
+	for (int i = 0; i < size; i++)
+	{
+		//losowanie wagi od -1 do 1
+		weight[i] = new double (- 1 + (double)rand() / RAND_MAX *(1 - (-1)));
+	}
 }
 
 // Destruktor
 Neuron::~Neuron() {
 	if (weight)
+	{
 		for (int i = 0; i < size; i++)
-			if (weight[i])
-				delete weight[i];
+		{
+			if (weight[i]) delete weight[i];
+		}
+			
+	}
 }
 
 // Funkcja uczaca neuron
-double Neuron::learn(const bool* array, const double& answer) {
+double Neuron::learn(const bool* array, const double answer) {
 	// Obliczam net
 	double net = 0.0;
 	for (int i = 0; i < size; i++)

@@ -8,13 +8,13 @@ using namespace std;
 class Neuron {
 public:
 	// Konstruktor
-	Neuron(const int& size);
+	Neuron(const int _size);
 
 	// Destruktor
 	~Neuron();
 
 	// Funkcja uczaca neuron
-	double learn(const bool* array, const double& answer);
+	double learn(const bool* array, const double answer);
 
 	// Obliczanie wartosci dla danych testowych
 	double count(const bool* array);
