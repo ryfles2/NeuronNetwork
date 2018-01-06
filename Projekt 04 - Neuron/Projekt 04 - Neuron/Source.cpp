@@ -9,7 +9,7 @@ using namespace std;
 const bool P1[SIZE] = { 1,1,1,1,1,1,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1,0,0,0,1,1,0,0,0,1,1,0,0,0,1 }; //A
 const bool P2[SIZE] = { 1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1,1,1 }; //C
 
-//const bool P3[SIZE] = {}// sprawdzanie sieciccsacsacsacsca
+//const bool P3[SIZE] = {}// sprawdzanie sieci
 
 
 int main(int argc, char *argv[]) {
